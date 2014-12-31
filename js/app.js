@@ -1,11 +1,3 @@
-$(document).ready(function() { /* function to start with first question */
-  $("#question-text").append(allQuestions[1].question);
-  for (var i=0; i<allQuestions[1].choices.length; i++) {
-      $("#choices").append('<li class="answer"><input type="radio" name="quiz-answer" value="' + i + '"><span>' + allQuestions[1].choices[i] + '</span></input></li>');
-    }
-  
-});
-
 var allQuestions = [
   { /* empty! */ },
   {question: "What is the capital of Canada?", choices: ["Toronto", "Montreal", "Ottawa", "Vancouver"], correctAnswer: 2}, /* end question number 1 */
@@ -20,6 +12,14 @@ var counter = 1;
 var score;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
+
+$(document).ready(function() { /* function to start with first question */
+  $("#question-text").append(allQuestions[1].question);
+  for (var i=0; i<allQuestions[1].choices.length; i++) {
+      $("#choices").append('<li class="answer"><input type="radio" name="quiz-answer" value="' + i + '"><span>' + allQuestions[1].choices[i] + '</span></input></li>');
+    }
+  
+});
 
 next.onclick = function() { /* function used to generate questions when clicking next question*/
   var value = $("input[type='radio']:checked").val(); /* store the  selected answer */
